@@ -1,123 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mri Timer</title>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: fantasy;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MRI Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-        #timer {
-            color: white;
-            font-size: 80px;
-            letter-spacing: 5px;
-            margin-bottom: 30px;
-        }
-
-        .digit {
-            display: inline-block;
-            width: 40px;
-            text-align: center;
-        }
-
-        .colon {
-            display: inline-block;
-            width: 20px;
-            text-align: center;
-        }
-
-        button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            margin: 0 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-    </style>
-</head>
-<body>
+   
+  <body>
+    
     <div id="timer">
-        <span class="digit">0</span>
-        <span class="digit">0</span>
-        <span class="colon">:</span>
-        <span class="digit">0</span>
-        <span class="digit">0</span>
-        <span class="colon">:</span>
-        <span class="digit">0</span>
-        <span class="digit">0</span>
+      <span class="digit">0</span>
+      <span class="digit">0</span>
+      <span class="colon">:</span>
+      <span class="digit">0</span>
+      <span class="digit">0</span>
+      <span class="colon">:</span>
+      <span class="digit">0</span>
+      <span class="digit">0</span>
     </div>
-    <div>
-        <button id="resetBtn">Reset</button>
-        <button id="stopBtn">Stop/Pause</button>
-        <button id="startBtn">Start</button>
+    <div class="button-container">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn">Stop/Pause</button>
+      <button id="resetBtn">Reset</button>
     </div>
 
-    <script>
-        const timerDisplay = document.getElementById('timer');
-        const digits = document.querySelectorAll('.digit');
-        let timeInSeconds = 0;
-        let timerId = null;
-        let isRunning = false;
-
-        function updateDisplay() {
-            const hours = Math.floor(timeInSeconds / 3600);
-            const minutes = Math.floor((timeInSeconds % 3600) / 60);
-            const seconds = timeInSeconds % 60;
-            
-            const timeString = 
-                String(hours).padStart(2, '0') + 
-                String(minutes).padStart(2, '0') + 
-                String(seconds).padStart(2, '0');
-            
-            digits.forEach((digit, index) => {
-                digit.textContent = timeString[index];
-            });
-        }
-
-        function startTimer() {
-            if (!isRunning) {
-                isRunning = true;
-                timerId = setInterval(() => {
-                    timeInSeconds++;
-                    updateDisplay();
-                }, 1000);
-            }
-        }
-
-        function stopTimer() {
-            clearInterval(timerId);
-            isRunning = false;
-        }
-
-        function resetTimer() {
-            stopTimer();
-            timeInSeconds = 0;
-            updateDisplay();
-        }
-
-        document.getElementById('startBtn').addEventListener('click', startTimer);
-        document.getElementById('stopBtn').addEventListener('click', stopTimer);
-        document.getElementById('resetBtn').addEventListener('click', resetTimer);
-
-        // Initial display setup
-        updateDisplay();
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

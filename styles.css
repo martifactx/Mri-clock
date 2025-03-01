@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: fantasy;
+}
+
+#timer {
+    color: white;
+    font-size: 80px;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.digit {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+
+.colon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    flex: 1;
+    max-width: 150px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #timer {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .digit {
+        width: 30px;
+    }
+
+    .colon {
+        width: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #timer {
+        font-size: 40px;
+        letter-spacing: 3px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+        max-width: 120px;
+    }
+
+    .digit {
+        width: 25px;
+    }
+
+    .colon {
+        width: 10px;
+    }
+}
